@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+:root {
+  /* ### Primary */
+
+  --Linear-gradient1/*(active input border)*/: #6448fe;
+  --Linear-gradient2: #600594;
+  --Red/*(input errors)*/: #ff5252;
+
+  /* ### Neutral */
+
+  --White: #ffffff;
+  --Light-grayish-violet: #dedddf;
+  --Dark-grayish-violet: #8e8593;
+  --Very-dark-violet: #21092f;
+}
+
+header {
+  background: url(../images/bg-main-mobile.png) no-repeat center center/cover;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

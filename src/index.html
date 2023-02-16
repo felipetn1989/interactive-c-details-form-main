@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body
+    class="lg:grid lg:h-[100vh] lg:grid-rows-[99fr_1fr] lg:grid-cols-[1fr_2fr] lg:max-w-[90rem]"
+  >
+    <header class="relative h-60 p-4 lg:h-full">
+      <div
+        class="absolute top-8 left-[4.5rem] w-72 lg:w-full lg:top-[unset] lg:bottom-[10.5rem] lg:left-64"
+      >
+        <img
+          class="relative"
+          src="../images/bg-card-back.png"
+          alt="illustration showing the back of a credit card"
+        />
+        <span
+          id="cvcOnCard"
+          class="absolute top-[4.5rem] right-10 text-[0.625rem] lg:top-[45%] lg:right-[19%] text-white lg:text-sm lg:tracking-widest"
+          >000</span
+        >
+      </div>
+      <div class="absolute top-32 w-72 lg:w-full lg:top-[11.75rem] lg:left-40">
+        <img
+          class="relative"
+          src="../images/bg-card-front.png"
+          alt="illustration showing the front of a credit card"
+        />
+        <img
+          class="absolute top-4 left-5 w-14 lg:w-[5.25rem] lg:top-[10%] lg:left-[8%]"
+          src="./images/card-logo.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span
+          id="numberOnCard"
+          class="absolute top-[5.0625rem] left-5 text-xl tracking-wider text-white lg:top-[58%] lg:left-[7%] lg:text-[min(2vw,1.8125rem)] lg:tracking-widest"
+          >0000 0000 0000 0000</span
+        >
+        <span
+          id="nameOnCard"
+          class="absolute bottom-6 left-6 uppercase text-[0.5rem] tracking-[0.125em] text-white lg:bottom-[11%] lg:left-[8%] lg:text-sm lg:tracking-widest"
+          >Jane Appleseed</span
+        >
+        <span
+          id="expirationOnCard"
+          class="absolute bottom-[1.3125rem] right-6 text-[0.5625rem] tracking-widest text-white lg:bottom-[10%] lg:right-[13%] lg:text-sm"
+          >00/00</span
+        >
+      </div>
+    </header>
+    <!-- remove hidden and add grid class -->
+    <form
+      id="mainForm"
+      class="grid gap-4 p-6 mt-[4.0625rem] text-xs tracking-widest text-[#21092f] lg:py-64 lg:max-w-[45%] lg:gap-3 lg:translate-x-[20.5rem] lg:mt-4"
+    >
+      <label class="uppercase" for="cardholder">Cardholder Name</label>
+      <input
+        id="cardholderName"
+        class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-[-0.25rem] pl-3.5 tracking-widest placeholder:text-base lg:translate-y-[-0.5rem]"
+        type="text"
+        name="cardholder"
+        id="cardholder"
+        placeholder="e.g. Jane Appleseed"
+      />
+      <span class="blank_error translate-y-[-1rem] hidden text-red-600"
+        >Can't be blank</span
+      >
+      <label class="uppercase" for="cardnumber">Card Number</label>
+      <input
+        id="cardNumber"
+        class="input_form outline outline-1 outline-[#dedddf] mt-[-0.25rem] w-full rounded-lg h-11 pl-3.5 tracking-wider placeholder:text-base lg:translate-y-[-0.5rem]"
+        type="text"
+        name="cardnumber"
+        id="cardnumber"
+        placeholder="e.g. 1234 5678 9123 0000"
+      />
+      <span id="cardNumberError" class="translate-y-[-1rem] hidden text-red-600"
+        >Wrong format, numbers only</span
+      >
+      <span class="blank_error translate-y-[-1rem] hidden text-red-600"
+        >Can't be blank</span
+      >
+      <span id="digitsQtyError" class="translate-y-[-1rem] hidden text-red-600"
+        >Wrong format, must be 16 digit-long</span
+      >
+      <div class="grid grid-cols-2 gap-3 mt-1 lg:mt-[unset]">
+        <div class="mr-1.5 lg:mr-3.5">
+          <label class="uppercase" for="month">Exp. Date (MM/YY)</label>
+          <div class="flex gap-2">
+            <input
+              id="expirationMonth"
+              class="input_form_ym outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-lg"
+              type="number"
+              name="month"
+              id="month"
+              placeholder="MM"
+              min="1"
+              max="12"
+            />
+            <label for="year">
+              <input
+                id="expirationYear"
+                class="input_form_ym outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-lg"
+                type="number"
+                name="year"
+                id="year"
+                placeholder="YY"
+                min="22"
+                max="99"
+              />
+            </label>
+          </div>
+          <span class="month_year_error translate-y-2 hidden text-red-600"
+            >Can't be blank</span
+          >
+          <span id="invalidMonth" class="translate-y-2 hidden text-red-600"
+            >Invalid month</span
+          >
+          <span id="invalidYear" class="translate-y-2 hidden text-red-600"
+            >Invalid year</span
+          >
+        </div>
+        <div class="flex flex-col ml-[-0.5rem]">
+          <label class="uppercase" for="cvc">CVC</label>
+          <input
+            id="cardCVC"
+            class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-base"
+            type="number"
+            name="cvc"
+            id="cvc"
+            placeholder="e.g. 123"
+          />
+          <span class="blank_error translate-y-2 hidden text-red-600"
+            >Can't be blank</span
+          >
+          <span id="invalidCVC" class="translate-y-2 hidden text-red-600"
+            >Invalid CVC</span
+          >
+        </div>
+      </div>
+      <button
+        id="confirmButton"
+        class="bg-[#21092f] text-white w-full h-[3.25rem] mt-3 text-base rounded-md lg:translate-y-2"
+      >
+        Confirm
+      </button>
+    </form>
+    <!-- Completed state start -->
+    <div
+      id="thankYouPage"
+      class="hidden gap-3 place-content-center text-[#21092f] mt-[5.75rem] lg:translate-x-16 lg:translate-y-[-2rem]"
+    >
+      <img
+        class="w-20 m-auto mb-6"
+        src="../images/icon-complete.svg"
+        alt="Checkmark icon"
+      />
+      <span class="text-center uppercase text-3xl">Thank you!</span>
+      <span class="text-lg text-center">We've added your card details</span>
+      <button
+        id="continueButton"
+        class="bg-[#21092f] text-white mt-[2.125rem] mb-4 py-3.5 px-32 rounded-md lg:w-96"
+      >
+        Continue
+      </button>
+    </div>
+
+    <footer class="attribution lg:col-span-2 lg:h-fit">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/felipetn1989">Felipe Thomé</a>.
+    </footer>
+  </body>
+  <script src="scripts/script.js"></script>
+</html>
