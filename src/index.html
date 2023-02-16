@@ -63,122 +63,119 @@
         >
       </div>
     </header>
-    <!-- remove hidden and add grid class -->
-    <form
-      id="mainForm"
-      class="grid gap-4 p-6 mt-[4.0625rem] text-xs tracking-widest text-[#21092f] lg:py-64 lg:max-w-[45%] lg:gap-3 lg:translate-x-[20.5rem] lg:mt-4"
-    >
-      <label class="uppercase" for="cardholder">Cardholder Name</label>
-      <input
-        id="cardholderName"
-        class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-[-0.25rem] pl-3.5 tracking-widest placeholder:text-base lg:translate-y-[-0.5rem]"
-        type="text"
-        name="cardholder"
-        id="cardholder"
-        placeholder="e.g. Jane Appleseed"
-      />
-      <span class="blank_error translate-y-[-1rem] hidden text-red-600"
-        >Can't be blank</span
+
+    <main>
+      <form
+        id="mainForm"
+        class="grid gap-4 p-6 mt-[4.0625rem] text-xs tracking-widest text-[#21092f] lg:py-64 lg:max-w-[45%] lg:gap-3 lg:translate-x-[20.5rem] lg:mt-4"
       >
-      <label class="uppercase" for="cardnumber">Card Number</label>
-      <input
-        id="cardNumber"
-        class="input_form outline outline-1 outline-[#dedddf] mt-[-0.25rem] w-full rounded-lg h-11 pl-3.5 tracking-wider placeholder:text-base lg:translate-y-[-0.5rem]"
-        type="text"
-        name="cardnumber"
-        id="cardnumber"
-        placeholder="e.g. 1234 5678 9123 0000"
-      />
-      <span id="cardNumberError" class="translate-y-[-1rem] hidden text-red-600"
-        >Wrong format, numbers only</span
-      >
-      <span class="blank_error translate-y-[-1rem] hidden text-red-600"
-        >Can't be blank</span
-      >
-      <span id="digitsQtyError" class="translate-y-[-1rem] hidden text-red-600"
-        >Wrong format, must be 16 digit-long</span
-      >
-      <div class="grid grid-cols-2 gap-3 mt-1 lg:mt-[unset]">
-        <div class="mr-1.5 lg:mr-3.5">
-          <label class="uppercase" for="month">Exp. Date (MM/YY)</label>
-          <div class="flex gap-2">
-            <input
-              id="expirationMonth"
-              class="input_form_ym outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-lg"
-              type="number"
-              name="month"
-              id="month"
-              placeholder="MM"
-              min="1"
-              max="12"
-            />
-            <label for="year">
+        <label class="uppercase" for="cardholderName" >Cardholder Name</label>
+        <input
+          id="cardholderName"
+          class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-[-0.25rem] pl-3.5 tracking-widest placeholder:text-base lg:translate-y-[-0.5rem]"
+          type="text"
+          name="cardholder"
+          placeholder="e.g. Jane Appleseed"
+        />
+        <span class="blank_error translate-y-[-1rem] hidden text-red-600"
+          >Can't be blank</span
+        >
+        <label class="uppercase" for="cardNumber">Card Number</label>
+        <input
+          id="cardNumber"
+          class="input_form outline outline-1 outline-[#dedddf] mt-[-0.25rem] w-full rounded-lg h-11 pl-3.5 tracking-wider placeholder:text-base lg:translate-y-[-0.5rem]"
+          type="text"
+          name="cardnumber"
+          placeholder="e.g. 1234 5678 9123 0000"
+        />
+        <span id="cardNumberError" class="translate-y-[-1rem] hidden text-red-600"
+          >Wrong format, numbers only</span
+        >
+        <span class="blank_error translate-y-[-1rem] hidden text-red-600"
+          >Can't be blank</span
+        >
+        <span id="digitsQtyError" class="translate-y-[-1rem] hidden text-red-600"
+          >Wrong format, must be 16 digit-long</span
+        >
+        <div class="grid grid-cols-2 gap-3 mt-1 lg:mt-[unset]">
+          <div class="mr-1.5 lg:mr-3.5">
+            <label class="uppercase" for="expirationMonth">Exp. Date (MM/YY)</label>
+            <div class="flex gap-2">
               <input
-                id="expirationYear"
+                id="expirationMonth"
                 class="input_form_ym outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-lg"
                 type="number"
-                name="year"
-                id="year"
-                placeholder="YY"
-                min="22"
-                max="99"
+                name="month"
+                placeholder="MM"
+                min="1"
+                max="12"
               />
-            </label>
+              <label for="expirationYear">
+                <input
+                  id="expirationYear"
+                  class="input_form_ym outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-lg"
+                  type="number"
+                  name="year"
+                  placeholder="YY"
+                  min="22"
+                  max="99"
+                />
+              </label>
+            </div>
+            <span class="month_year_error translate-y-2 hidden text-red-600"
+              >Can't be blank</span
+            >
+            <span id="invalidMonth" class="translate-y-2 hidden text-red-600"
+              >Invalid month</span
+            >
+            <span id="invalidYear" class="translate-y-2 hidden text-red-600"
+              >Invalid year</span
+            >
           </div>
-          <span class="month_year_error translate-y-2 hidden text-red-600"
-            >Can't be blank</span
-          >
-          <span id="invalidMonth" class="translate-y-2 hidden text-red-600"
-            >Invalid month</span
-          >
-          <span id="invalidYear" class="translate-y-2 hidden text-red-600"
-            >Invalid year</span
-          >
+          <div class="flex flex-col ml-[-0.5rem]">
+            <label class="uppercase" for="cardCVC">CVC</label>
+            <input
+              id="cardCVC"
+              class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-base"
+              type="number"
+              name="cvc"
+              placeholder="e.g. 123"
+            />
+            <span class="blank_error translate-y-2 hidden text-red-600"
+              >Can't be blank</span
+            >
+            <span id="invalidCVC" class="translate-y-2 hidden text-red-600"
+              >Invalid CVC</span
+            >
+          </div>
         </div>
-        <div class="flex flex-col ml-[-0.5rem]">
-          <label class="uppercase" for="cvc">CVC</label>
-          <input
-            id="cardCVC"
-            class="input_form outline outline-1 outline-[#dedddf] w-full rounded-lg h-11 mt-2 pl-3.5 placeholder:text-base"
-            type="number"
-            name="cvc"
-            id="cvc"
-            placeholder="e.g. 123"
-          />
-          <span class="blank_error translate-y-2 hidden text-red-600"
-            >Can't be blank</span
-          >
-          <span id="invalidCVC" class="translate-y-2 hidden text-red-600"
-            >Invalid CVC</span
-          >
-        </div>
+        <button
+          id="confirmButton"
+          class="bg-[#21092f] text-white w-full h-[3.25rem] mt-3 text-base rounded-md lg:translate-y-2"
+        >
+          Confirm
+        </button>
+      </form>
+      <!-- Completed state start -->
+      <div
+        id="thankYouPage"
+        class="hidden gap-3 place-content-center text-[#21092f] mt-[5.75rem] lg:translate-x-16 lg:translate-y-[-2rem]"
+      >
+        <img
+          class="w-20 m-auto mb-6"
+          src="../images/icon-complete.svg"
+          alt="Checkmark icon"
+        />
+        <span class="text-center uppercase text-3xl">Thank you!</span>
+        <span class="text-lg text-center">We've added your card details</span>
+        <button
+          id="continueButton"
+          class="bg-[#21092f] text-white mt-[2.125rem] mb-4 py-3.5 px-32 rounded-md lg:w-96"
+        >
+          Continue
+        </button>
       </div>
-      <button
-        id="confirmButton"
-        class="bg-[#21092f] text-white w-full h-[3.25rem] mt-3 text-base rounded-md lg:translate-y-2"
-      >
-        Confirm
-      </button>
-    </form>
-    <!-- Completed state start -->
-    <div
-      id="thankYouPage"
-      class="hidden gap-3 place-content-center text-[#21092f] mt-[5.75rem] lg:translate-x-16 lg:translate-y-[-2rem]"
-    >
-      <img
-        class="w-20 m-auto mb-6"
-        src="../images/icon-complete.svg"
-        alt="Checkmark icon"
-      />
-      <span class="text-center uppercase text-3xl">Thank you!</span>
-      <span class="text-lg text-center">We've added your card details</span>
-      <button
-        id="continueButton"
-        class="bg-[#21092f] text-white mt-[2.125rem] mb-4 py-3.5 px-32 rounded-md lg:w-96"
-      >
-        Continue
-      </button>
-    </div>
+    </main>
 
     <footer class="attribution lg:col-span-2 lg:h-fit">
       Challenge by
